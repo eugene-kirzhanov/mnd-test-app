@@ -1,0 +1,8 @@
+java {
+    sourceCompatibility = libs.versions.java.get()
+    targetCompatibility = libs.versions.java.get()
+}
+
+dependencies {
+    implementation(libs.kotlin.stdLib)
+}

@@ -22,5 +22,23 @@ kotlin-stdLib                 = { module ="org.jetbrains.kotlin:kotlin-stdlib-jd
 
 androidx-core                 = "androidx.core:core-ktx:1.7.0"
 androidx-appcompat            = "androidx.appcompat:appcompat:1.4.1"
+androidx-activity             = "androidx.activity:activity-ktx:1.4.0"
+androidx-fragment             = "androidx.fragment:fragment-ktx:1.4.1"
 
 android-material              = "com.google.android.material:material:1.5.0"
+
+lifecycle-viewmodel           = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+lifecycle-commonJava8         = "androidx.lifecycle:lifecycle-common-java8:2.4.1"
+
+coroutines-core               = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
+coroutines-android            = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+
+javax-inject                  = "javax.inject:javax.inject:1"
+
+dagger-core                   = "com.google.dagger:dagger:2.41"
+dagger-compiler               = "com.google.dagger:dagger-compiler:2.41"
+dagger-android                = "com.google.dagger:dagger-android:2.41"
+dagger-android-support        = "com.google.dagger:dagger-android-support:2.41"
+dagger-android-compiler       = "com.google.dagger:dagger-android-processor:2.41"
+
+timber                        = "com.jakewharton.timber:timber:4.7.1"
