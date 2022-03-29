@@ -1,0 +1,35 @@
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+}
+
+android {
+    compileSdk = libs.versions.compileSdk.get() as int
+
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get() as int
+        targetSdk = libs.versions.targetSdk.get() as int
+
+        applicationId = "by.anegin.clients"
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility = libs.versions.java.get()
+        targetCompatibility = libs.versions.java.get()
+    }
+}
+
+dependencies {
+    implementation(libs.kotlin.stdLib)
+
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.appcompat)
+
+    implementation(libs.android.material)
+}

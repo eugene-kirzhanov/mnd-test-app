@@ -1,0 +1,26 @@
+# suppress inspection "UnusedProperty" for whole file
+# suppress inspection "WrongPropertyKeyValueDelimiter" for whole file
+
+[versions]
+java                          = "11"
+kotlin                        = "1.6.10"
+
+compileSdk                    = "31"
+minSdk                        = "21"
+targetSdk                     = "31"
+
+androidPlugin                 = "7.1.2"
+
+[plugins]
+kotlinPlugin                  = { id ="kotlin-android", version.ref = "kotlin" }
+androidApp                    = { id ="com.android.application", version.ref = "androidPlugin" }
+androidLibrary                = { id ="com.android.library", version.ref = "androidPlugin" }
+
+
+[libraries]
+kotlin-stdLib                 = { module ="org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+
+androidx-core                 = "androidx.core:core-ktx:1.7.0"
+androidx-appcompat            = "androidx.appcompat:appcompat:1.4.1"
+
+android-material              = "com.google.android.material:material:1.5.0"
