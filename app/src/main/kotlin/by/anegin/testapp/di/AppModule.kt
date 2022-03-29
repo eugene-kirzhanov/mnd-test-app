@@ -5,7 +5,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-internal interface CoroutinesModule {
+internal interface AppModule {
 
     @Binds
     fun bindCoroutineDispatchersModule(impl: by.anegin.testapp.util.AppCoroutineDispatchers): CoroutineDispatchers

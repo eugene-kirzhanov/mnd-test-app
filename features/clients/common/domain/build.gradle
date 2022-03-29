@@ -1,0 +1,9 @@
+plugins {
+    id("org.jetbrains.kotlin.jvm")
+}
+
+apply from: "$rootDir/build_jvm.gradle"
+
+dependencies {
+    implementation(libs.coroutines.core)
+}

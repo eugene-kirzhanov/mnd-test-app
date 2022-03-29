@@ -11,7 +11,7 @@ import dagger.android.AndroidInjectionModule
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        CoroutinesModule::class,
+        AppModule::class,
         FeaturesModule::class
     ]
 )
