@@ -1,6 +1,6 @@
 package by.anegin.testapp.util
 
-import by.anegin.testapp.core.common.util.CoroutineDispatchers
+import by.anegin.testapp.core.util.CoroutineDispatchers
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

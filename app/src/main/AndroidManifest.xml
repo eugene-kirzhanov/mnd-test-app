@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Clients">
 
         <activity
-            android:name="by.anegin.testapp.features.main.ui.MainActivity"
+            android:name="by.anegin.testapp.features.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

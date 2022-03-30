@@ -1,12 +1,10 @@
 package by.anegin.testapp.features.main.di
 
-import by.anegin.testapp.core.ui.di.InjectionViewModelProvider
-import by.anegin.testapp.core.ui.di.ViewModelInjection
-import by.anegin.testapp.core.ui.navigation.AppNavigator
-import by.anegin.testapp.features.main.router.MainScreenRouter
-import by.anegin.testapp.features.main.router.MainScreenRouterImpl
-import by.anegin.testapp.features.main.ui.MainActivity
-import by.anegin.testapp.features.main.ui.MainScreenViewModel
+import by.anegin.testapp.core.di.InjectionViewModelProvider
+import by.anegin.testapp.core.di.ViewModelInjection
+import by.anegin.testapp.core.navigation.AppNavigator
+import by.anegin.testapp.features.main.MainActivity
+import by.anegin.testapp.features.main.MainScreenViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -16,9 +14,6 @@ interface MainScreenModule {
 
     @Binds
     fun bindAppNavigator(activity: MainActivity): AppNavigator
-
-    @Binds
-    fun bindMainScreenRouter(impl: MainScreenRouterImpl): MainScreenRouter
 
     companion object {
         @Provides

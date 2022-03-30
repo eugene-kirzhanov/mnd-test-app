@@ -27,9 +27,8 @@ dependencyResolutionManagement {
 rootProject.name = "Clients"
 
 include(":app")
+include(":core")
 
-include(":core:common")
-include(":core:ui")
-
-include(":features:clients:common:domain")
-include(":features:clients:common:data")
+include(":features:clients:domain")
+include(":features:clients:data")
+include(":features:clients:presentation")

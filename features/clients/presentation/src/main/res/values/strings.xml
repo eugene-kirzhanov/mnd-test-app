@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main_screen">Main screen</string>
+    <string name="add_client">Add client</string>
+    <string name="no_clients">No clients added so far</string>
+    <string name="weight">Weight</string>
+    <string name="date_of_birth">DOB</string>
+    <string name="edit">Edit</string>
+
+    <string name="weight_units_lb">lb</string>
+    <string name="weight_units_kg">kg</string>
+</resources>
