@@ -10,11 +10,13 @@ minSdk                        = "21"
 targetSdk                     = "31"
 
 androidPlugin                 = "7.1.2"
+hiltPlugin                    = "2.38.1"
 
 [plugins]
 kotlinPlugin                  = { id ="kotlin-android", version.ref = "kotlin" }
 androidApp                    = { id ="com.android.application", version.ref = "androidPlugin" }
 androidLibrary                = { id ="com.android.library", version.ref = "androidPlugin" }
+hilt                          = { id ="dagger.hilt.android.plugin", version.ref = "hiltPlugin" }
 
 
 [libraries]
@@ -35,12 +37,7 @@ lifecycle-commonJava8         = "androidx.lifecycle:lifecycle-common-java8:2.4.1
 coroutines-core               = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
 coroutines-android            = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
 
-javax-inject                  = "javax.inject:javax.inject:1"
-
-dagger-core                   = "com.google.dagger:dagger:2.41"
-dagger-compiler               = "com.google.dagger:dagger-compiler:2.41"
-dagger-android                = "com.google.dagger:dagger-android:2.41"
-dagger-android-support        = "com.google.dagger:dagger-android-support:2.41"
-dagger-android-compiler       = "com.google.dagger:dagger-android-processor:2.41"
+hilt-android                  = { module ="com.google.dagger:hilt-android", version.ref = "hiltPlugin" }
+hilt-compiler                 = { module ="com.google.dagger:hilt-compiler", version.ref = "hiltPlugin" }
 
 timber                        = "com.jakewharton.timber:timber:4.7.1"

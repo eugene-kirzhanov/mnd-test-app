@@ -5,20 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import by.anegin.testapp.core.di.ViewModelInjection
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import by.anegin.testapp.core.util.observe
 import by.anegin.testapp.features.clients.presentation.R
 import by.anegin.testapp.features.clients.presentation.databinding.FragmentClientsListBinding
-import dagger.android.support.DaggerFragment
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
-internal class ClientsListFragment : DaggerFragment(R.layout.fragment_clients_list) {
+@AndroidEntryPoint
+internal class ClientsListFragment : Fragment(R.layout.fragment_clients_list) {
 
     private var binding: FragmentClientsListBinding? = null
 
-    @Inject
-    @ViewModelInjection
-    lateinit var viewModel: ClientsListViewModel
+    private val viewModel: ClientsListViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         FragmentClientsListBinding.inflate(inflater, container, false)
@@ -26,8 +25,12 @@ internal class ClientsListFragment : DaggerFragment(R.layout.fragment_clients_li
             .root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = ClientsAdapter(viewModel::onClientEditClick)
+        val adapter = ClientsAdapter(viewModel::showEditClientScreen)
         binding?.recyclerviewClients?.adapter = adapter
+
+        binding?.buttonAddClient?.setOnClickListener {
+            viewModel.showAddClientScreen()
+        }
 
         viewModel.clients.observe(viewLifecycleOwner) { clients ->
             adapter.submitList(clients)

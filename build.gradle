@@ -10,7 +10,7 @@ allprojects {
             jvmTarget = libs.versions.java.get()
         }
     }
- }
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir

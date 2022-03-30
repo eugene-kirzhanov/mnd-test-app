@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    alias(libs.plugins.hilt)
 }
 
 apply from: "$rootDir/build_android.gradle"
@@ -29,8 +30,6 @@ dependencies {
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.commonJava8)
 
-    implementation(libs.dagger.android)
-    implementation(libs.dagger.android.support)
-    kapt(libs.dagger.compiler)
-    kapt(libs.dagger.android.compiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }
