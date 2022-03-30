@@ -70,10 +70,6 @@ internal class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_bi
             }
         }
 
-        // 30: 1648598400000
-        // 29: 1648512000000
-        // XX: 1648425600000
-
         val constraints = CalendarConstraints.Builder()
             .setStart(minDate.timeInMillis)
             .setEnd(maxDate.timeInMillis)
@@ -93,7 +89,7 @@ internal class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_bi
             .build()
 
         datePicker.show(childFragmentManager, null)
-        // 1648512000000 (29)
+
         datePicker.addOnPositiveButtonClickListener { selectedDate ->
             this.selectedDate = Date(selectedDate).also {
                 viewModel.setBirthdate(it)

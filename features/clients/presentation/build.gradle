@@ -8,6 +8,9 @@ plugins {
 apply from: "$rootDir/build_android.gradle"
 
 android {
+    defaultConfig {
+        consumerProguardFiles "consumer-rules.pro"
+    }
     buildFeatures {
         viewBinding true
     }

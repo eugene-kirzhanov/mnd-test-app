@@ -9,9 +9,36 @@ apply from: "$rootDir/build_android.gradle"
 
 android {
     defaultConfig {
-        applicationId = "by.anegin.clients"
+        applicationId = "by.anegin.testapp"
         versionCode = 1
         versionName = "1.0"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile rootProject.file("test_keystore.jks")
+            storePassword "5DPkZMPk5zRh3CsY"
+            keyAlias = "debug"
+            keyPassword "5DPkZMPk5zRh3CsY"
+        }
+        release {
+            storeFile rootProject.file("test_keystore.jks")
+            storePassword "5DPkZMPk5zRh3CsY"
+            keyAlias = "release"
+            keyPassword "5DPkZMPk5zRh3CsY"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
+        }
     }
 
     buildFeatures {
