@@ -63,6 +63,8 @@ internal class EditClientFragment : Fragment(R.layout.fragment_edit_client) {
                 viewModel.onPageSelected(position)
             }
         })
+
+        // use TabLayout with custom tabBackground as indicator for ViewPager
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { _, _ -> }.attach()
     }
 

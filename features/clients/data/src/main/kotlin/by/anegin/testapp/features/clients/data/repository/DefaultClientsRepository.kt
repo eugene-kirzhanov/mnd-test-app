@@ -5,6 +5,10 @@ import by.anegin.testapp.features.clients.domain.repository.ClientsRepository
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Sample repository which currently doesn't contain any logic
+ * and proxies all CRUD calls to single DataSource.
+ */
 internal class DefaultClientsRepository @Inject constructor(
     private val localClientsDataSource: ClientsDataSource
 ) : ClientsRepository {

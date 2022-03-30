@@ -15,6 +15,15 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 
+/**
+ * Local [ClientsDataSource] which stores clients list in StateFlow,
+ * allowing callers to observe changes.
+ *
+ * The datasource operates in default-dispatcher.
+ *
+ * Data is stored in separate [ClientDto] models, which in real app
+ * will differ from domain [Client] model. See [ClientDto] for details.
+ */
 @Singleton
 internal class InMemoryClientsDataSource @Inject constructor(
     private val dispatchers: CoroutineDispatchers,
@@ -27,6 +36,7 @@ internal class InMemoryClientsDataSource @Inject constructor(
     override fun getClients(): Flow<List<Client>> =
         clients
             .map { clientDtos ->
+                // map DTO models to domain models
                 clientDtos.mapNotNull { clientDto ->
                     try {
                         clientDtoMapper.mapFromDest(clientDto)
@@ -48,6 +58,8 @@ internal class InMemoryClientsDataSource @Inject constructor(
     override suspend fun addClient(client: Client): Long = withContext(dispatchers.default) {
         lock.withLock {
             val clientsList = clients.value
+
+            // use incremental value as ID for new clients
             val newClientId = clientsList.size.toLong() + 1 // staring from 1
 
             clients.value = clientsList.toMutableList()

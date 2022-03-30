@@ -9,6 +9,9 @@ import by.anegin.testapp.util.AppNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+/**
+ * Sample Activity - host for AppNavigator.
+ */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 

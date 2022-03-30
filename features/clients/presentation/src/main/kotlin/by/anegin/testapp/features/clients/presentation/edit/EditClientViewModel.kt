@@ -38,6 +38,7 @@ internal class EditClientViewModel @Inject constructor(
     val nextButtonTitle = _currentPage.map(::getNextButtonTitle)
 
     init {
+        // get clientId value from fragment arguments which are passed through SavedStateHandle
         state.get<Long>(EditClientFragment.ARG_CLIENT_ID)?.let { clientId ->
             viewModelScope.launch {
                 _client.value = clientsRepository.getClient(clientId) ?: NEW_CLIENT
@@ -108,6 +109,7 @@ internal class EditClientViewModel @Inject constructor(
     companion object {
         private val NEW_CLIENT = Client(0, 0f, WeightUnits.LB, Date(0), null)
 
+        // predefined list of pages
         val PAGES = listOf(
             EditClientPage(EditWeightFragment::class.java, R.string.enter_body_weight),
             EditClientPage(EditBirthdateFragment::class.java, R.string.enter_date_of_birth),

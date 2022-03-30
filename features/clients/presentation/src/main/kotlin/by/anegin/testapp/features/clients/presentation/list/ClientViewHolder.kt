@@ -56,6 +56,7 @@ internal class ClientViewHolder(
     private fun formatDate(date: Date): String =
         DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault()).format(date)
 
+    // format float value as is
     private fun formatWeight(weight: Float, units: WeightUnits): String =
         "$weight${units.getTitle()}"
 

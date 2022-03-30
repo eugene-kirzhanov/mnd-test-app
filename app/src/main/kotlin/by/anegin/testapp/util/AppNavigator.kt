@@ -8,6 +8,10 @@ import java.lang.ref.WeakReference
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Sample Navigator implementation based on FragmentTransactions.
+ * Should be attached/detached to the host activity before using.
+ */
 @Singleton
 class AppNavigator @Inject constructor() : Navigator {
 

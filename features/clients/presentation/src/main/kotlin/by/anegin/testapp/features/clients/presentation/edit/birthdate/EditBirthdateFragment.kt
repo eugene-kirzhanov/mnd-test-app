@@ -55,15 +55,18 @@ internal class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_bi
         val utcTimeZone = TimeZone.getTimeZone("UTC")
         val today = MaterialDatePicker.todayInUtcMilliseconds()
 
+        // set today as max date for birthdate
         val maxDate = Calendar.getInstance(utcTimeZone)
         maxDate.timeInMillis = today
 
+        // set today minus 120 years as min date for birthdate
         val minDate = Calendar.getInstance(utcTimeZone)
         minDate.timeInMillis = today
         minDate.add(Calendar.YEAR, -120)
         minDate.set(Calendar.MONTH, Calendar.JANUARY)
         minDate.set(Calendar.DAY_OF_MONTH, 1)
 
+        // select month at which DatePicker will be opened
         val openAt = selectedDate?.let {
             Calendar.getInstance(utcTimeZone).apply {
                 timeInMillis = it.time
@@ -90,8 +93,9 @@ internal class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_bi
 
         datePicker.show(childFragmentManager, null)
 
-        datePicker.addOnPositiveButtonClickListener { selectedDate ->
-            this.selectedDate = Date(selectedDate).also {
+        datePicker.addOnPositiveButtonClickListener { pickedDate ->
+            // save picked date to ViewModel right after picking it
+            this.selectedDate = Date(pickedDate).also {
                 viewModel.setBirthdate(it)
             }
         }

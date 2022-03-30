@@ -2,8 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="by.anegin.testapp.features.clients.presentation">
 
+    <!--
+        The following permission can be used in ImagePicker.
+        It's not always necessary but may be requested, depending on which 3rd party app used for picking image
+    -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!--
+        Required on Android 11+ for calling PackageManager.queryIntentActivities() in ImagePicker.
+    -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PICK" />

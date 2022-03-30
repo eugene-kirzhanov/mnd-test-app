@@ -42,7 +42,6 @@ internal class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo)
             buttonPickPhoto.setOnClickListener {
                 imagePicker?.pickImageFromGallery()
             }
-
             buttonRemovePhoto.setOnClickListener {
                 viewModel.clearPhoto()
             }

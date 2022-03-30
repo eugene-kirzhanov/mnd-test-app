@@ -22,8 +22,12 @@ internal interface RepositoriesModule {
     @Binds
     fun bindClientsRepository(impl: DefaultClientsRepository): ClientsRepository
 
+    // DataSources
+
     @Binds
     fun bindLocalClientsDataSource(impl: InMemoryClientsDataSource): ClientsDataSource
+
+    // Mappers
 
     @Binds
     fun bindClientDtoMapper(impl: ClientDtoMapper): Mapper<Client, ClientDto>

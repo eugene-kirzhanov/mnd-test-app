@@ -42,6 +42,8 @@ internal class EditWeightFragment : Fragment(R.layout.fragment_edit_client_weigh
 
     override fun onResume() {
         super.onResume()
+
+        // request focus for input field on each resume
         binding?.editWeight?.apply {
             post {
                 setSelection(length())
@@ -52,6 +54,8 @@ internal class EditWeightFragment : Fragment(R.layout.fragment_edit_client_weigh
 
     override fun onPause() {
         super.onPause()
+
+        // save weight value and units to ViewModel on each pause
         binding?.let {
             val weightText = it.editWeight.text.toString().trim()
             val weight = if (weightText.isEmpty()) 0f else weightText.toFloatOrNull() ?: return@let
