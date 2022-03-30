@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
 @Singleton
-internal class AppCoroutineDispatchers @Inject constructor() : CoroutineDispatchers {
+class AppCoroutineDispatchers @Inject constructor() : CoroutineDispatchers {
 
     override val io: CoroutineDispatcher = Dispatchers.IO
 

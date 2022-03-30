@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import by.anegin.testapp.R
-import by.anegin.testapp.core.navigation.AppNavigator
-import by.anegin.testapp.util.AppNavigatorDelegate
+import by.anegin.testapp.core.navigation.Navigator
+import by.anegin.testapp.util.AppNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -13,14 +13,14 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     @Inject
-    lateinit var appNavigator: AppNavigator
+    lateinit var appNavigator: Navigator
 
     private val viewModel: MainScreenViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        (appNavigator as? AppNavigatorDelegate)?.setup(this, R.id.fragment_container)
+        (appNavigator as? AppNavigator)?.setup(this, R.id.fragment_container)
 
         if (savedInstanceState == null) {
             viewModel.showClientsList()
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     override fun onDestroy() {
-        (appNavigator as? AppNavigatorDelegate)?.cleanup()
+        (appNavigator as? AppNavigator)?.cleanup()
         super.onDestroy()
     }
 }

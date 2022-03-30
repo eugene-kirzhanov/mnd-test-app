@@ -14,7 +14,7 @@ import by.anegin.testapp.features.clients.presentation.edit.EditClientViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class EditWeightFragment : Fragment(R.layout.fragment_edit_client_weight) {
+internal class EditWeightFragment : Fragment(R.layout.fragment_edit_client_weight) {
 
     private val viewModel: EditClientViewModel by viewModels({ requireParentFragment() })
 

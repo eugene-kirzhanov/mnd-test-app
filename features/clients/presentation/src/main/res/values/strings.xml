@@ -29,4 +29,6 @@
     <string name="error_invalid_file_format">Invalid file format</string>
     <string name="error_file_not_found">File not found</string>
     <string name="error_gallery_app_not_found">Gallery app not found</string>
+
+    <string name="not_specified">Not specified</string>
 </resources>

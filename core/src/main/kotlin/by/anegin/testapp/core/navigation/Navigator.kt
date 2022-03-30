@@ -1,6 +1,6 @@
 package by.anegin.testapp.core.navigation
 
-interface AppNavigator {
+interface Navigator {
 
     fun navigateTo(destination: NavDestination)
 

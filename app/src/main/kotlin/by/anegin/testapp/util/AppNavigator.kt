@@ -2,14 +2,14 @@ package by.anegin.testapp.util
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
-import by.anegin.testapp.core.navigation.AppNavigator
 import by.anegin.testapp.core.navigation.NavDestination
+import by.anegin.testapp.core.navigation.Navigator
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-internal class AppNavigatorDelegate @Inject constructor() : AppNavigator {
+class AppNavigator @Inject constructor() : Navigator {
 
     private var activityRef: WeakReference<AppCompatActivity>? = null
     private var fragmentContainerId = 0

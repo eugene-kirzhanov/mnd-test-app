@@ -15,6 +15,7 @@ import dagger.Binds
 import dagger.Module
 import java.util.Date
 
+@Suppress("unused")
 @Module
 internal interface RepositoriesModule {
 

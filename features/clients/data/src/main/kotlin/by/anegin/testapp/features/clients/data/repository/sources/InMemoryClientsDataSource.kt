@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import timber.log.Timber
 
 @Singleton
 internal class InMemoryClientsDataSource @Inject constructor(
@@ -33,7 +32,6 @@ internal class InMemoryClientsDataSource @Inject constructor(
                         clientDtoMapper.mapFromDest(clientDto)
                     } catch (e: IllegalArgumentException) {
                         // skip DTOs which can't be mapped
-                        Timber.w("Error mapping ClientDto: ${e.message}")
                         null
                     }
                 }

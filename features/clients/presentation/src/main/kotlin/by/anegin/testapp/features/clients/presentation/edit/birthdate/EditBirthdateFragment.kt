@@ -19,7 +19,7 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
-class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_birthdate) {
+internal class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_birthdate) {
 
     private val viewModel: EditClientViewModel by viewModels({ requireParentFragment() })
 

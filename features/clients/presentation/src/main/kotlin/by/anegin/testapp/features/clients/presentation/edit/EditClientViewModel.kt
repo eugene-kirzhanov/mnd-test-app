@@ -3,7 +3,7 @@ package by.anegin.testapp.features.clients.presentation.edit
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import by.anegin.testapp.core.navigation.AppNavigator
+import by.anegin.testapp.core.navigation.Navigator
 import by.anegin.testapp.features.clients.domain.models.Client
 import by.anegin.testapp.features.clients.domain.models.WeightUnits
 import by.anegin.testapp.features.clients.domain.repository.ClientsRepository
@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 internal class EditClientViewModel @Inject constructor(
     state: SavedStateHandle,
     private val clientsRepository: ClientsRepository,
-    private val appNavigator: AppNavigator
+    private val appNavigator: Navigator
 ) : ViewModel() {
 
     private val _client = MutableStateFlow<Client?>(null)

@@ -8,7 +8,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Clients">
+        android:theme="@style/Theme.TestApp">
 
         <activity
             android:name="by.anegin.testapp.features.main.MainActivity"

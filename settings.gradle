@@ -27,7 +27,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Clients"
+rootProject.name = "TestApp"
 
 include(":app")
 include(":core")

@@ -17,9 +17,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import java.io.File
 import java.io.FileNotFoundException
-import timber.log.Timber
 
-class ImagePicker(
+internal class ImagePicker(
     private val fragment: Fragment,
     private val listener: Callback
 ) {
@@ -168,7 +167,7 @@ class ImagePicker(
             BitmapFactory.decodeStream(context.contentResolver.openInputStream(this), null, options)
             options.outWidth != -1 && options.outHeight != -1
         } catch (e: Exception) {
-            Timber.e(e)
+            e.printStackTrace()
             false
         }
     }

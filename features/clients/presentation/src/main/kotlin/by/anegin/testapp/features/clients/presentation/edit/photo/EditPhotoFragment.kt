@@ -16,10 +16,9 @@ import by.anegin.testapp.features.clients.presentation.databinding.FragmentEditC
 import by.anegin.testapp.features.clients.presentation.edit.EditClientViewModel
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
-class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo), ImagePicker.Callback {
+internal class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo), ImagePicker.Callback {
 
     private val viewModel: EditClientViewModel by viewModels({ requireParentFragment() })
 
@@ -89,7 +88,6 @@ class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo), ImagePi
             ImagePicker.Error.FILE_NOT_FOUND -> R.string.error_file_not_found
             ImagePicker.Error.NO_ASSOCIATED_GALLERY_APPS -> R.string.error_gallery_app_not_found
         }
-        Timber.e(getString(errorMessage))
         Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
     }
 }

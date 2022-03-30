@@ -29,8 +29,17 @@ internal class ClientViewHolder(
     fun bind(client: Client) {
         this.clientId = client.id
 
-        binding.textBirthdateValue.text = formatDate(client.dateOfBirth)
-        binding.textWeightValue.text = formatWeight(client.weight, client.weightUnits)
+        if (client.dateOfBirth.time > 0) {
+            binding.textBirthdateValue.text = formatDate(client.dateOfBirth)
+        } else {
+            binding.textBirthdateValue.setText(R.string.not_specified)
+        }
+
+        if (client.weight > 0) {
+            binding.textWeightValue.text = formatWeight(client.weight, client.weightUnits)
+        } else {
+            binding.textWeightValue.setText(R.string.not_specified)
+        }
 
         if (client.photoUri.isNullOrBlank()) {
             glide.clear(binding.imagePhoto)

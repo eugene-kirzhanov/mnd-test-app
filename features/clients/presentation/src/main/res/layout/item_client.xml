@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="8dp"
-    tools:theme="@style/Theme.Clients">
+    android:paddingVertical="8dp">
 
     <ImageView
         android:id="@+id/image_photo"
@@ -77,7 +76,6 @@
         style="@style/AppButton.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
         android:text="@string/edit"
         app:layout_constraintStart_toEndOf="@id/image_photo"
         app:layout_constraintTop_toBottomOf="@id/text_birthdate_value" />

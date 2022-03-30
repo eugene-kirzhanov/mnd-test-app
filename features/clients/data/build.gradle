@@ -12,6 +12,4 @@ dependencies {
     implementation(libs.coroutines.core)
 
     implementation(libs.hilt.android)
-
-    implementation(libs.timber)
 }
