@@ -12,6 +12,9 @@ internal class DefaultClientsRepository @Inject constructor(
     override fun getClients(): Flow<List<Client>> =
         localClientsDataSource.getClients()
 
+    override suspend fun getClient(clientId: Long): Client? =
+        localClientsDataSource.getClient(clientId)
+
     override suspend fun addClient(client: Client): Long =
         localClientsDataSource.addClient(client)
 

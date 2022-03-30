@@ -7,6 +7,8 @@ internal interface ClientsDataSource {
 
     fun getClients(): Flow<List<Client>>
 
+    suspend fun getClient(clientId: Long): Client?
+
     suspend fun addClient(client: Client): Long
 
     suspend fun editClient(client: Client)

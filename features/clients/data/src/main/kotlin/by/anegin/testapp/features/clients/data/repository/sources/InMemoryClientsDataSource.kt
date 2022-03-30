@@ -40,6 +40,13 @@ internal class InMemoryClientsDataSource @Inject constructor(
             }
             .flowOn(dispatchers.default)
 
+    override suspend fun getClient(clientId: Long): Client? = withContext(dispatchers.default) {
+        lock.withLock {
+            val clientDto = clients.value.find { it.id == clientId }
+            clientDto?.let { clientDtoMapper.mapFromDest(it) }
+        }
+    }
+
     override suspend fun addClient(client: Client): Long = withContext(dispatchers.default) {
         lock.withLock {
             val clientsList = clients.value

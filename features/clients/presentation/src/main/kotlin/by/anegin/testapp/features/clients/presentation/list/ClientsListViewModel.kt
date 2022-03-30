@@ -3,6 +3,7 @@ package by.anegin.testapp.features.clients.presentation.list
 import androidx.lifecycle.ViewModel
 import by.anegin.testapp.core.navigation.AppNavigator
 import by.anegin.testapp.features.clients.domain.repository.ClientsRepository
+import by.anegin.testapp.features.clients.presentation.ClientsNavDestinations
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.map
@@ -18,10 +19,10 @@ internal class ClientsListViewModel @Inject constructor(
     val isEmptyLabelVisible = clients.map { it.isEmpty() }
 
     fun showAddClientScreen() {
-//        appNavigator.navigateTo(ClientsNavDestinations.addClient())
+        appNavigator.navigateTo(ClientsNavDestinations.addClient())
     }
 
     fun showEditClientScreen(clientId: Long) {
-//        appNavigator.navigateTo(ClientsNavDestinations.editClient(clientId))
+        appNavigator.navigateTo(ClientsNavDestinations.editClient(clientId))
     }
 }
