@@ -8,7 +8,7 @@ import java.util.Date
 import javax.inject.Inject
 
 internal class ClientDtoMapper @Inject constructor(
-    private val dateMapper: Mapper<Date, String>,
+    private val dateMapper: Mapper<Date, Long>,
     private val weightUnitsMapper: Mapper<WeightUnits, String>
 ) : Mapper<Client, ClientDto> {
 

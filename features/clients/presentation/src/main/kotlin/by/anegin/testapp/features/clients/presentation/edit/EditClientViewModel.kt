@@ -61,7 +61,7 @@ internal class EditClientViewModel @Inject constructor(
 
     fun onNextPressed() {
         if (_currentPage.value >= PAGES.size - 1) {
-            // TODO save and exit
+            saveClientAndExit()
         } else {
             _currentPage.value = _currentPage.value + 1
         }
@@ -85,6 +85,18 @@ internal class EditClientViewModel @Inject constructor(
     fun clearPhoto() {
         val client = _client.value ?: return
         _client.value = client.copy(photoUri = null)
+    }
+
+    private fun saveClientAndExit() {
+        val client = _client.value ?: return
+        viewModelScope.launch {
+            if (client.id == 0L) {
+                clientsRepository.addClient(client)
+            } else {
+                clientsRepository.editClient(client)
+            }
+            appNavigator.navigateBack()
+        }
     }
 
     private fun getPageTitle(position: Int): Int =

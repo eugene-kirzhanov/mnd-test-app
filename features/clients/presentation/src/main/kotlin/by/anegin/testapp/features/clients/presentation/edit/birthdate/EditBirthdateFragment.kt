@@ -25,7 +25,7 @@ class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_birthdate) 
 
     private var binding: FragmentEditClientBirthdateBinding? = null
 
-    private var currentDate = Date(System.currentTimeMillis())
+    private var selectedDate: Date? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         FragmentEditClientBirthdateBinding.inflate(inflater, container, false)
@@ -44,7 +44,7 @@ class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_birthdate) 
 
             viewModel.client.observe(viewLifecycleOwner) { client ->
                 if (client.dateOfBirth.time > 0) {
-                    currentDate = client.dateOfBirth
+                    selectedDate = client.dateOfBirth
                     editBirthdate.setText(formateBirthdate(client.dateOfBirth))
                 }
             }
@@ -52,34 +52,52 @@ class EditBirthdateFragment : Fragment(R.layout.fragment_edit_client_birthdate) 
     }
 
     private fun showDatePicker() {
+        val utcTimeZone = TimeZone.getTimeZone("UTC")
         val today = MaterialDatePicker.todayInUtcMilliseconds()
 
-        val maxDate = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+        val maxDate = Calendar.getInstance(utcTimeZone)
         maxDate.timeInMillis = today
 
-        val minDate = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+        val minDate = Calendar.getInstance(utcTimeZone)
         minDate.timeInMillis = today
-        minDate.add(Calendar.YEAR, -100)
+        minDate.add(Calendar.YEAR, -120)
+        minDate.set(Calendar.MONTH, Calendar.JANUARY)
+        minDate.set(Calendar.DAY_OF_MONTH, 1)
+
+        val openAt = selectedDate?.let {
+            Calendar.getInstance(utcTimeZone).apply {
+                timeInMillis = it.time
+            }
+        }
+
+        // 30: 1648598400000
+        // 29: 1648512000000
+        // XX: 1648425600000
 
         val constraints = CalendarConstraints.Builder()
             .setStart(minDate.timeInMillis)
             .setEnd(maxDate.timeInMillis)
-            .setOpenAt(currentDate.time)
+            .apply {
+                openAt?.let { setOpenAt(it.timeInMillis) }
+            }
             .setValidator(DateValidatorPointBackward.now())
             .build()
 
         val datePicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText(R.string.date_of_birth_full)
             .setInputMode(MaterialDatePicker.INPUT_MODE_CALENDAR)
-            .setSelection(currentDate.time)
+            .apply {
+                selectedDate?.let { setSelection(it.time) }
+            }
             .setCalendarConstraints(constraints)
             .build()
 
         datePicker.show(childFragmentManager, null)
-
+        // 1648512000000 (29)
         datePicker.addOnPositiveButtonClickListener { selectedDate ->
-            currentDate = Date(selectedDate)
-            viewModel.setBirthdate(currentDate)
+            this.selectedDate = Date(selectedDate).also {
+                viewModel.setBirthdate(it)
+            }
         }
     }
 

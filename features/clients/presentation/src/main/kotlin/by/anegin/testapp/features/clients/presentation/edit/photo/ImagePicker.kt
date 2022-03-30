@@ -19,7 +19,7 @@ import java.io.File
 import java.io.FileNotFoundException
 import timber.log.Timber
 
-class ImageChooser(
+class ImagePicker(
     private val fragment: Fragment,
     private val listener: Callback
 ) {

@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:theme="@style/Theme.Clients"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="8dp">
+    android:paddingVertical="8dp"
+    tools:theme="@style/Theme.Clients">
 
     <ImageView
         android:id="@+id/image_photo"
         android:layout_width="112dp"
         android:layout_height="144dp"
+        android:background="#eeeeee"
         android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_baseline_person_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="#cccccc" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_weight_title"

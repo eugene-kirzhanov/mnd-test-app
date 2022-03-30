@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import by.anegin.testapp.core.util.observe
 import by.anegin.testapp.features.clients.presentation.R
 import by.anegin.testapp.features.clients.presentation.databinding.FragmentClientsListBinding
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +26,7 @@ internal class ClientsListFragment : Fragment(R.layout.fragment_clients_list) {
             .root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = ClientsAdapter(viewModel::showEditClientScreen)
+        val adapter = ClientsAdapter(Glide.with(this), viewModel::showEditClientScreen)
         binding?.recyclerviewClients?.adapter = adapter
 
         binding?.buttonAddClient?.setOnClickListener {

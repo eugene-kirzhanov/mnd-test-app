@@ -28,7 +28,7 @@ internal interface RepositoriesModule {
     fun bindClientDtoMapper(impl: ClientDtoMapper): Mapper<Client, ClientDto>
 
     @Binds
-    fun bindDateMapper(impl: DateMapper): Mapper<Date, String>
+    fun bindDateMapper(impl: DateMapper): Mapper<Date, Long>
 
     @Binds
     fun bindWeightUnitsMapper(impl: WeightUnitsMapper): Mapper<WeightUnits, String>

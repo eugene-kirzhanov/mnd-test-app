@@ -53,7 +53,7 @@ class EditWeightFragment : Fragment(R.layout.fragment_edit_client_weight) {
     override fun onPause() {
         super.onPause()
         binding?.let {
-            val weightText = it.editWeight.toString().trim()
+            val weightText = it.editWeight.text.toString().trim()
             val weight = if (weightText.isEmpty()) 0f else weightText.toFloatOrNull() ?: return@let
             val weightUnits = if (it.radioWeightLb.isChecked) WeightUnits.LB else WeightUnits.KG
             viewModel.setWeight(weight, weightUnits)

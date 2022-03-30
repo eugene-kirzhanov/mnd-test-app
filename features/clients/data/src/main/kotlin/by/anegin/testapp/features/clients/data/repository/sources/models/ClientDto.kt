@@ -4,6 +4,6 @@ internal class ClientDto(
     val id: Long?,
     val weight: Float?,
     val weightUnits: String?,
-    val dateOfBirth: String?,
+    val dateOfBirth: Long?,
     val photoUri: String?
 )

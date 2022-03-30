@@ -50,7 +50,7 @@ internal class InMemoryClientsDataSource @Inject constructor(
     override suspend fun addClient(client: Client): Long = withContext(dispatchers.default) {
         lock.withLock {
             val clientsList = clients.value
-            val newClientId = clientsList.size.toLong()
+            val newClientId = clientsList.size.toLong() + 1 // staring from 1
 
             clients.value = clientsList.toMutableList()
                 .apply {

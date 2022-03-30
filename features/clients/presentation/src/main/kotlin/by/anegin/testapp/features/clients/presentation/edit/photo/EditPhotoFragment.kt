@@ -19,17 +19,17 @@ import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo), ImageChooser.Callback {
+class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo), ImagePicker.Callback {
 
     private val viewModel: EditClientViewModel by viewModels({ requireParentFragment() })
 
     private var binding: FragmentEditClientPhotoBinding? = null
 
-    private var imageChooser: ImageChooser? = null
+    private var imagePicker: ImagePicker? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        imageChooser = ImageChooser(this, this)
+        imagePicker = ImagePicker(this, this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
@@ -41,7 +41,7 @@ class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo), ImageCh
         binding?.apply {
 
             buttonPickPhoto.setOnClickListener {
-                imageChooser?.pickImageFromGallery()
+                imagePicker?.pickImageFromGallery()
             }
 
             buttonRemovePhoto.setOnClickListener {
@@ -74,7 +74,7 @@ class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo), ImageCh
     }
 
     override fun onDetach() {
-        imageChooser = null
+        imagePicker = null
         super.onDetach()
     }
 
@@ -82,12 +82,12 @@ class EditPhotoFragment : Fragment(R.layout.fragment_edit_client_photo), ImageCh
         viewModel.setPhoto(imageUri.toString())
     }
 
-    override fun onImageChooseError(error: ImageChooser.Error) {
+    override fun onImageChooseError(error: ImagePicker.Error) {
         val errorMessage = when (error) {
-            ImageChooser.Error.STORAGE_PERMISSION_DENIED -> R.string.error_storage_permission_denied
-            ImageChooser.Error.INVALID_IMAGE -> R.string.error_invalid_file_format
-            ImageChooser.Error.FILE_NOT_FOUND -> R.string.error_file_not_found
-            ImageChooser.Error.NO_ASSOCIATED_GALLERY_APPS -> R.string.error_gallery_app_not_found
+            ImagePicker.Error.STORAGE_PERMISSION_DENIED -> R.string.error_storage_permission_denied
+            ImagePicker.Error.INVALID_IMAGE -> R.string.error_invalid_file_format
+            ImagePicker.Error.FILE_NOT_FOUND -> R.string.error_file_not_found
+            ImagePicker.Error.NO_ASSOCIATED_GALLERY_APPS -> R.string.error_gallery_app_not_found
         }
         Timber.e(getString(errorMessage))
         Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
