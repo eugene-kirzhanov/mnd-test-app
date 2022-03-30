@@ -21,4 +21,12 @@
     <string name="back">Back</string>
     <string name="next">Next</string>
     <string name="done">Done</string>
+
+    <string name="pick_photo">Pick photo</string>
+    <string name="remove_photo">Remove photo</string>
+
+    <string name="error_storage_permission_denied">Storage permission denied</string>
+    <string name="error_invalid_file_format">Invalid file format</string>
+    <string name="error_file_not_found">File not found</string>
+    <string name="error_gallery_app_not_found">Gallery app not found</string>
 </resources>

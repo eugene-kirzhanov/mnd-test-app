@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean = appNavigator.navigateBack()
-
     override fun onDestroy() {
         (appNavigator as? AppNavigatorDelegate)?.cleanup()
         super.onDestroy()

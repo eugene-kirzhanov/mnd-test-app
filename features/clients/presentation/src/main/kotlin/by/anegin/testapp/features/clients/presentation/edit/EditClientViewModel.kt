@@ -77,6 +77,16 @@ internal class EditClientViewModel @Inject constructor(
         _client.value = client.copy(dateOfBirth = date)
     }
 
+    fun setPhoto(photoUri: String?) {
+        val client = _client.value ?: return
+        _client.value = client.copy(photoUri = photoUri)
+    }
+
+    fun clearPhoto() {
+        val client = _client.value ?: return
+        _client.value = client.copy(photoUri = null)
+    }
+
     private fun getPageTitle(position: Int): Int =
         PAGES.getOrNull(position)?.titleResId ?: 0
 

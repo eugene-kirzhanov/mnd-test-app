@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="by.anegin.testapp.features.clients.presentation" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="by.anegin.testapp.features.clients.presentation">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PICK" />
+            <data android:mimeType="image/*" />
+        </intent>
+    </queries>
+
+</manifest>

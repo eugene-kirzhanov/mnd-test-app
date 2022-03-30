@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -48,6 +49,10 @@ internal class EditClientFragment : Fragment(R.layout.fragment_edit_client) {
                     it.setCurrentItem(currentPage, true)
                 }
             }
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback {
+            viewModel.onBackPressed()
         }
     }
 
